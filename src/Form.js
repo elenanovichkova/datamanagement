@@ -3,6 +3,8 @@ import { Field, reduxForm } from 'redux-form';
 import TextField from "./components/TextField.js";
 import RadioField from "./components/RadioField.js";
 import SelectField from "./components/SelectField.js";
+import CheckBoxField from "./components/CheckBoxField.js";
+import TextareaField from "./components/TextareaField.js";
 
 const Form = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
@@ -49,32 +51,30 @@ const Form = props => {
         </div>
       </div>
       <div>
-        <label>Favorite Color</label>
         <div>
         <Field
             name="color"
-            label="Color"
-            placeholder="color"
+            label="Favorite Color"
+            placeholder="Favorite Color"
             options={[{id:'0',value:'',descr:'select'},{id:'1',value:'green',descr:'green'},{id:'2',value:'yellow',descr:'yellow'}]}
             component={SelectField}
           />
         </div>
       </div>
       <div>
-        <label htmlFor="employed">Employed</label>
         <div>
           <Field
+            label="Employed"
             name="employed"
             id="employed"
-            component="input"
+            component={CheckBoxField}
             type="checkbox"
           />
         </div>
       </div>
       <div>
-        <label>Notes</label>
         <div>
-          <Field name="notes" component="textarea" />
+          <Field name="notes" label="Notes" component={TextareaField}/>
         </div>
       </div>
       <div>
