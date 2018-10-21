@@ -1,7 +1,4 @@
 import React from 'react';
-//import $ from "jquery";
-//import popper from 'popper';
-//import bootstrap from 'bootstrap';
 
 const TextField = ({ input, label, type, meta: { touched, error } }) => (
     <div className="form-group">
