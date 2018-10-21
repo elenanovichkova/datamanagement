@@ -1,11 +1,13 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import TextField from "./components/TextField.js";
+import RadioField from "./components/RadioField.js";
+import SelectField from "./components/SelectField.js";
 
 const Form = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
   return (
-    <form onSubmit={handleSubmit} className="form form-horizontal">
+    <form onSubmit={handleSubmit} className="form">
       <div>
         <div>
           <Field
@@ -41,28 +43,21 @@ const Form = props => {
       </div>
       <div>
         <label>Sex</label>
-        <div>
-          <label>
-            <Field name="sex" component="input" type="radio" value="male" />
-            {' '}
-            Male
-          </label>
-          <label>
-            <Field name="sex" component="input" type="radio" value="female" />
-            {' '}
-            Female
-          </label>
+        <div className="row">
+            <div className="col-md-1"><Field label="Male" name="sex" component={RadioField} type="radio" value="male" /></div>
+            <div className="col-md-1"><Field label="Female" name="sex" component={RadioField} type="radio" value="female" /></div>           
         </div>
       </div>
       <div>
         <label>Favorite Color</label>
         <div>
-          <Field name="favoriteColor" component="select">
-            <option />
-            <option value="ff0000">Red</option>
-            <option value="00ff00">Green</option>
-            <option value="0000ff">Blue</option>
-          </Field>
+        <Field
+            name="color"
+            label="Color"
+            placeholder="color"
+            options={[{id:'0',value:'',descr:'select'},{id:'1',value:'green',descr:'green'},{id:'2',value:'yellow',descr:'yellow'}]}
+            component={SelectField}
+          />
         </div>
       </div>
       <div>
@@ -83,10 +78,12 @@ const Form = props => {
         </div>
       </div>
       <div>
-        <button type="submit" disabled={pristine || submitting}>Submit</button>
-        <button type="button" disabled={pristine || submitting} onClick={reset}>
+        <div className="row">
+            <div className="col-sm-1"><button type="submit" disabled={pristine || submitting} className="btn btn-primary">Submit</button></div>
+            <div className="col-sm-1"><button type="button" disabled={pristine || submitting} onClick={reset} className="btn btn-default">
           Clear Values
-        </button>
+        </button></div>
+        </div>        
       </div>
     </form>
   );
