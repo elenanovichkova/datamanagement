@@ -12,7 +12,9 @@
     "react-scripts": "2.0.5",
     "redux": "^4.0.1",
     "redux-form": "^7.4.2",
-    "redux-form-website-template": "0.0.123"
+    "redux-form-website-template": "0.0.123",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
